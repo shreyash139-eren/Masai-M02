@@ -5,6 +5,7 @@ function createCounter(){
 
     function increment(){
         count++
+        return count;
     }
     function getCount(){
         return count
@@ -14,16 +15,13 @@ function createCounter(){
         getCount
     }
 }
-let counter=createCounter()
-console.log(counter.getCount())
-counter.increment()
-counter.increment()
-counter.increment()
-console.log(counter.getCount())
-counter.increment()
-counter.increment()
-counter.increment()
-console.log(counter.getCount())
+const counter = createCounter();
+
+console.log(counter.increment()); // Output: 1;
+
+console.log(counter.increment()); // Output: 2;
+
+console.log(counter.getCount()); // Output: 2;
 
 
 
