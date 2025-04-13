@@ -38,13 +38,7 @@
         },
 
         getTotalRevenue: function(order){
-            let sum=0
-            for(let i=0;i<orderList.length;i++){
-                let reven=order[i].items[i].price.reduce((acc,curr)=>{
-                    sum+= acc+curr
-                },0)
-            }
-            return sum
+            
         },
 
         exportOrders: function(arr){
