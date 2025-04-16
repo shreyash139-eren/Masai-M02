@@ -4,17 +4,13 @@
     let orderList=[]
     let obj={
         addOrders: function(order){
-            
-            
             orderList.push(order)
             return orderList
         },
-        status:"Order recieved",
         updateOrders: function(id){
-            for(let i=0;i<order.length;i++){
-            if(id===order[i].id){
-             order.status=this.status
-                return order.status
+            for(let i=0;i<orderList.length;i++){
+            if(id===orderList[i].id){
+                return orderList[i].status
             }
         }
         return "No order from this ID"
@@ -22,23 +18,27 @@
 
         filterOrders: function(status){
             let FilteredOrders = orderList.filter((ele,i)=>{
-               if (ele[i].status===status){
-                return ele
+               if(status===ele[i].status){
+                return orderList
                }
             })
             return FilteredOrders
         },
 
         sortOrders: function(by){
-           if(by===orderList.createdAt){
-            let sorr=orderList.sort((a,b)=>{
-                return a-b
-            })
-           }
+            for(let i=0;i<orderList.length;i++){
+                if(by===date){
+
+                }
+            }
         },
 
         getTotalRevenue: function(order){
-            
+            let sum=0
+            for(let i=0;i<order.length;i++){
+            sum+=order[i].items[0].price
+            }
+            return sum
         },
 
         exportOrders: function(arr){
@@ -49,7 +49,8 @@
     
 
 
-    return obj.getTotalRevenue()
+    console.log(obj.addOrders(order))
+    console.log(obj.updateOrders(1))
   }
 let order=[
         {
@@ -67,4 +68,5 @@ let order=[
             createdAt: new Date("2024-03-02")
         }
 ]
-console.log(createOrderManager(order))
+createOrderManager(order)
+
